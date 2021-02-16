@@ -1,16 +1,28 @@
 import './App.css';
 import { Header } from './Header/header'
 import { Navigation } from './nav/nav'
-import {MainContent} from './MainContent/MainContent'
-import './index.css';
+import { Dialogs } from './Dialogs/Dialogs'
+import { Profile } from './Profile/Profile'
+import { Music } from './Music/Music'
+import { News } from './News/News'
+import {Settings} from './Settings-comp/Settings'
+import { BrowserRouter, Route } from 'react-router-dom';
 
 const App = () => {
   return (
-    <div className="wrapper">
-      <Header />
-      <Navigation />
-      <MainContent />
-    </div>
+    <BrowserRouter>
+      <div className="wrapper">
+        <Header />
+        <Navigation />
+        <div className='app-wrapper-content'>
+          <Route path="/dialogs" component={ Dialogs } /> 
+          <Route path="/maincontent" component={ Profile } /> 
+          <Route path="/music" component={ Music } />
+          <Route path="/news" component={News} />
+          <Route path="/settings" component={ Settings } />
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
