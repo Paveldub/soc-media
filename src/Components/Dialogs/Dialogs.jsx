@@ -5,8 +5,8 @@ import { Message } from './Message/Message'
 
 export const Dialogs = (props) => {
 
-  const dialogsElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id} key={d.id} />)
-  const messagesElemets = props.messages.map(m => <Message message={m.message} key={m.id}/>)
+  const dialogsElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} key={d.id} />)
+  const messagesElemets = props.state.messages.map(m => <Message message={m.message} key={m.id}/>)
 
   return (
     <div className={style.dialogWrap}>

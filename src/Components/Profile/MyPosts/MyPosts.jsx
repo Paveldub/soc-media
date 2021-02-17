@@ -8,7 +8,7 @@ export const MyPosts = (props) => {
   return (
     <>
       <div className={style.postWrap}>
-        {postsElems}
+        { postsElems }
       </div>
     </>
   )
