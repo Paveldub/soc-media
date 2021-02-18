@@ -4,13 +4,6 @@ import { DialogItem } from './DialogItems/DialogItems'
 import { Message } from './Message/Message'
 
 export const Dialogs = (props) => {
-  const textAreaRef = React.createRef();
-
-  const handleSumbit = () => {
-    const textAreaRefValue = textAreaRef.current.value;
-
-    alert(textAreaRefValue)
-  }
 
   return (
     <div className={style.dialogWrap}>
@@ -21,8 +14,8 @@ export const Dialogs = (props) => {
         { props.state.messages.map(m => <Message message={m.message} key={m.id}/>) }
       </div>
       <div>
-        <textarea ref={textAreaRef}></textarea>
-        <button onClick={handleSumbit}>click me</button>
+        <textarea></textarea>
+        <button>DIALOG</button>
       </div>
     </div>
   )

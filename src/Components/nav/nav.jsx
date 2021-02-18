@@ -7,7 +7,7 @@ export const Navigation = (props) => {
 
   return (
       <nav className={style.nav}>
-        <NavLink to='/maincontent' className={style.item} activeClassName={style.active}>Profile</NavLink>
+        <NavLink to='/profile' className={style.item} activeClassName={style.active}>Profile</NavLink>
         <NavLink to='/dialogs' className={style.item} activeClassName={style.active}>Messages</NavLink>
         <NavLink to='/music' className={style.item} activeClassName={style.active}>Music</NavLink>
         <NavLink to='/news' className={style.item} activeClassName={style.active}>News</NavLink>
