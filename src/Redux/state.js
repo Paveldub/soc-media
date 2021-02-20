@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 export const state = {
   profilePage: {
     posts: [
@@ -93,4 +95,6 @@ export const addPost = (postMessage) => {
   };
 
   state.profilePage.posts.push(newPost);
+  
+  rerenderEntireTree(state);
 };

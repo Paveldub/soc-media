@@ -14,7 +14,9 @@ export const Navigation = (props) => {
         <NavLink to='/settings' className={style.item} activeClassName={style.active}>Settings</NavLink>
       <h4 className={style.item}>Friends list</h4>
       <ul style={{ display: 'flex', textAlign: 'center'}}>
-        { props.state.friends.map(friend => <Friends name={friend.name} key={friend.id} id={friend.id}/>) }
+        {props.state.friends.map(friend =>
+          <Friends name={friend.name} key={friend.id} id={friend.id} 
+        />)}
       </ul>
     </nav>
   )
