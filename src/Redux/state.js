@@ -19,6 +19,8 @@ export const state = {
         likesCount: 122
       }
     ],
+
+    newPostText: 'default value'
   },
 
   dialogsPage: {
@@ -96,5 +98,17 @@ export const addPost = (postMessage) => {
 
   state.profilePage.posts.push(newPost);
   
+  state.profilePage.newPostText = '';
+  
   rerenderEntireTree(state);
 };
+
+export const updateNewPostText = (newText) => {
+
+  state.profilePage.newPostText = newText;
+  
+  rerenderEntireTree(state);
+}; 
+
+
+window.state = state;
