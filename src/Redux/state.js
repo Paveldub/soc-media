@@ -97,7 +97,7 @@ export const store = {
 
     let newPost = {
       id: 66,
-      message: this._state.postMessage,
+      message: postMessage,
       likesCount: 55
     };
 
@@ -105,17 +105,17 @@ export const store = {
     
     this._state.profilePage.newPostText = '';
     
-    this._callSubscriber();
+    this._callSubscriber(this._state);
   },
 
   updateNewPostText(newText) {
 
     this._state.profilePage.newPostText = newText;
     
-    this._callSubscriber();
+    this._callSubscriber(this._state);
   },
 
   subscribe(observer) {
-    this.rerenderEntireTree = observer;
+    this._callSubscriber = observer;
   }
 }

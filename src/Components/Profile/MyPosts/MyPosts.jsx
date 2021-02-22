@@ -24,7 +24,7 @@ export const MyPosts = (props) => {
           <textarea ref={newPostElement} onChange={onValueChange} value={props.newPostText}/>
           <button onClick={addPost}>Add post</button>
         </div>
-        { props.posts.map(post =>
+        {props.posts.map(post =>
           <Post message={post.message} likesCount={post.likesCount} key={post.id} id={post.id} />)
         }
       </div>
