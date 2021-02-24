@@ -6,12 +6,10 @@ import { updateNewMessageActionCreator, addUserMessageActionCreator } from '../.
 
 export const Dialogs = (props) => {
 
-  let textAreaInput = React.createRef();
+  const onValueChange = (e) => {
+    let target = e.target.value;
 
-  const onValueChange = (text) => {
-    let textAreaValue = textAreaInput.current.value;
-
-    props.dispatch(updateNewMessageActionCreator(textAreaValue));
+    props.dispatch(updateNewMessageActionCreator(target));
   }
 
   const addNewUserMessage = () => props.dispatch(addUserMessageActionCreator());
@@ -29,8 +27,14 @@ export const Dialogs = (props) => {
         )}
       </div>
       <div>
-        <textarea value={props.state.newMessageText} onChange={onValueChange} ref={textAreaInput}></textarea>
-        <button onClick={addNewUserMessage}>DIALOG</button>
+        
+        <textarea
+          value={props.state.newMessageText}
+          onChange={onValueChange}
+          placeholder='Add your message'
+        >
+        </textarea>
+        <button onClick={ addNewUserMessage }>DIALOG</button>
       </div>
     </div>
   )

@@ -6,14 +6,12 @@ import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../R
 
 export const MyPosts = (props) => {
 
-  let newPostElement = React.createRef();
-
   let addPost = () =>  props.dispatch(addPostActionCreator());
 
-  let onValueChange = () => {
-    let text = newPostElement.current.value;
+  let onValueChange = (e) => {
+    let target = e.target.value;
 
-    props.dispatch(updateNewPostTextActionCreator(text));
+    props.dispatch(updateNewPostTextActionCreator(target));
   }
 
   return (
@@ -21,7 +19,6 @@ export const MyPosts = (props) => {
       <div className={style.postWrap}>
         <div>
           <textarea
-            ref={newPostElement}
             onChange={onValueChange}
             value={props.newPostText} 
           />

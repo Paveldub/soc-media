@@ -114,21 +114,17 @@ export const store = {
       };
 
       this._state.profilePage.posts.push(newPost);
-      
       this._state.profilePage.newPostText = '';
-      
       this._callSubscriber(this._state);
 
     } else if (action.type === updateNewText) {
       this._state.profilePage.newPostText = action.newText;
-    
       this._callSubscriber(this._state);
 
     } else if (action.type === userMessageValue) {
-
       this._state.dialogsPage.newMessageText = action.newText;
-      
       this._callSubscriber(this._state);
+
     } else if (action.type === addUserMessage) {
 
       let newUserMessage = {
