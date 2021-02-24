@@ -82,7 +82,7 @@ export const store = {
         }
       ],
 
-      newPostTextUser: 'message from user'
+      newMessageText: ''
     },
 
     friendsComponent: {
@@ -126,19 +126,19 @@ export const store = {
 
     } else if (action.type === userMessageValue) {
 
-      this._state.dialogsPage.newPostTextUser = action.newText;
+      this._state.dialogsPage.newMessageText = action.newText;
       
       this._callSubscriber(this._state);
     } else if (action.type === addUserMessage) {
 
       let newUserMessage = {
         id: 111,
-        message: this._state.dialogsPage.newPostTextUser
+        message: this._state.dialogsPage.newMessageText
       }
 
       this._state.dialogsPage.messages.push(newUserMessage);
 
-      this._state.dialogsPage.newPostTextUser = '';
+      this._state.dialogsPage.newMessageText = '';
 
       this._callSubscriber(this._state);
     }

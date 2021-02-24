@@ -29,7 +29,7 @@ export const Dialogs = (props) => {
         )}
       </div>
       <div>
-        <textarea value={props.state.newPostTextUser} onChange={onValueChange} ref={textAreaInput}></textarea>
+        <textarea value={props.state.newMessageText} onChange={onValueChange} ref={textAreaInput}></textarea>
         <button onClick={addNewUserMessage}>DIALOG</button>
       </div>
     </div>
