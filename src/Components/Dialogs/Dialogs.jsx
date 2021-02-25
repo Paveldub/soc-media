@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Dialogs.module.css';
 import { DialogItem } from './DialogItems/DialogItems'
 import { Message } from './Message/Message';
-import { updateNewMessageActionCreator, addUserMessageActionCreator } from '../../Redux/state'
+import { updateNewMessageActionCreator, addUserMessageActionCreator } from '../../Redux/dialogsPage-reducer';
 
 export const Dialogs = (props) => {
 
@@ -12,7 +12,8 @@ export const Dialogs = (props) => {
     props.dispatch(updateNewMessageActionCreator(target));
   }
 
-  const addNewUserMessage = () => props.dispatch(addUserMessageActionCreator());
+  const addNewUserMessage =
+    () => props.dispatch(addUserMessageActionCreator());
 
   return (
     <div className={style.dialogWrap}>
