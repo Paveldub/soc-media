@@ -17,7 +17,7 @@ const App = (props) => {
     <BrowserRouter>
       <div className="wrapper">
         <Header />
-        <Navigation state={props.state.friendsComponent}/>
+        <Navigation state={props.state.friends}/>
         <div className='app-wrapper-content'>
           
           <Route path="/dialogs"
