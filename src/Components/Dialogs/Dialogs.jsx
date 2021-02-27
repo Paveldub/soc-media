@@ -1,7 +1,9 @@
 import React from 'react';
 import style from './Dialogs.module.css';
+
 import { DialogItem } from './DialogItems/DialogItems'
 import { Message } from './Message/Message';
+
 import { updateNewMessageActionCreator, addUserMessageActionCreator } from '../../Redux/Reducers/dialogsPage-reducer';
 
 export const Dialogs = (props) => {
@@ -12,9 +14,10 @@ export const Dialogs = (props) => {
     props.dispatch(updateNewMessageActionCreator(target));
   }
 
-  const addNewUserMessage =
-    () => props.dispatch(addUserMessageActionCreator());
-
+  const addNewUserMessage = () => {
+    props.dispatch(addUserMessageActionCreator());
+  }
+   
   return (
     <div className={style.dialogWrap}>
       <div className={style.dialogsItems}>
@@ -32,7 +35,6 @@ export const Dialogs = (props) => {
         <textarea
           value={props.state.newMessageText}
           onChange={onValueChange}
-          placeholder='Add your message'
         >
         </textarea>
         <button onClick={ addNewUserMessage }>DIALOG</button>

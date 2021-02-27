@@ -4,7 +4,7 @@ import { dialogsReducer } from './Reducers/dialogsPage-reducer';
 import { profileReducer } from './Reducers/profilePage-reducer';
 import { friendsReducer } from './Reducers/friendsComponentReducer';
 
-const reducers = combineReducers ({
+const reducers = combineReducers({
   profilePage: profileReducer,
   dialogsPage: dialogsReducer,
   friends: friendsReducer
