@@ -2,25 +2,27 @@ const addPost = 'ADD-POST';
 const updateNewText = 'UPDATE-NEW-POST-TEXT';
 
 let initialState = {
-  posts: [
-    {
-      id: 1,
-      message: 'Hey, how are you?',
-      likesCount: 10
-    },
-    {
-      id: 2,
-      message: 'Hey, this is my first post',
-      likesCount: 11
-    },
-    {
-      id: 3,
-      message: 'Hey, this is my THIRD post',
-      likesCount: 122
-    }
+
+    posts: [
+      {
+        id: 1,
+        message: 'Hey, how are you?',
+        likesCount: 10
+      },
+      {
+        id: 2,
+        message: 'Hey, this is my first post',
+        likesCount: 11
+      },
+      {
+        id: 3,
+        message: 'Hey, this is my THIRD post',
+        likesCount: 122
+      }
   ],
 
-  newPostText: 'leave your comment below'
+    newPostText: 'leave your comment below'
+ 
 };
 
 export const profileReducer = (state = initialState, action) => {

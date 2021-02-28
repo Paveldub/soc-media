@@ -3,6 +3,7 @@ import { Post } from './Post/Post';
 import style from './MyPosts.module.css';
 
 export const MyPosts = (props) => {
+
   let addPost = () => {
     props.addPost();
   };
