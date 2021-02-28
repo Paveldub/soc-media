@@ -4,18 +4,16 @@ import style from './Dialogs.module.css';
 import { DialogItem } from './DialogItems/DialogItems'
 import { Message } from './Message/Message';
 
-import { updateNewMessageActionCreator, addUserMessageActionCreator } from '../../Redux/Reducers/dialogsPage-reducer';
-
 export const Dialogs = (props) => {
 
   const onValueChange = (e) => {
     let target = e.target.value;
 
-    props.dispatch(updateNewMessageActionCreator(target));
+    props.onValueChange(target);
   }
 
   const addNewUserMessage = () => {
-    props.dispatch(addUserMessageActionCreator());
+    props.addNewUserMessage();
   }
    
   return (

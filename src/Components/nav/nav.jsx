@@ -16,9 +16,9 @@ export const Navigation = (props) => {
       
       <h4 className={style.item}>Friends list</h4>
       <ul style={{ display: 'flex', textAlign: 'center'}}>
-        {props.state.friends.map(friend =>
-          <Friends name={friend.name} key={friend.id} id={friend.id} 
-        />)}
+
+        <Friends name={'Pavel'} key={'10'} id={'11'} />
+
       </ul>
     </nav>
   )

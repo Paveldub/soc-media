@@ -9,9 +9,9 @@ export const Profile = (props) => {
     <div className={style.content}>
       <ProfileInfo />
       <MyPostsContainer
-        posts={props.profilePage.posts}
+        posts={props.state.posts}
         dispatch={props.dispatch}
-        newPostText={props.profilePage.newPostText} 
+        newPostText={props.state.newPostText} 
       />
     </div>
   )
