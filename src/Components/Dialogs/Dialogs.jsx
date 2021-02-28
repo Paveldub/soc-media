@@ -19,17 +19,17 @@ export const Dialogs = (props) => {
   return (
     <div className={style.dialogWrap}>
       <div className={style.dialogsItems}>
-        {props.state.dialogs.map(d =>
+        {props.dialogs.map(d =>
           <DialogItem name={d.name} id={d.id} key={d.id} />
         )}
       </div>
       <div className={style.messages}>
-        {props.state.messages.map(m =>
+        {props.messages.map(m =>
           <Message message={m.message} key={m.id} />
         )}
         <textarea
-            value={props.state.newMessageText}
-            onChange={onValueChange}
+            value={props.newMessageText}
+            onChange={ onValueChange }
           >
         </textarea>
         <button onClick={ addNewUserMessage }>DIALOG</button>
