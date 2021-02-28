@@ -29,15 +29,14 @@ export const Dialogs = (props) => {
         {props.state.messages.map(m =>
           <Message message={m.message} key={m.id} />
         )}
-      </div>
-      <div>
-        
         <textarea
-          value={props.state.newMessageText}
-          onChange={onValueChange}
-        >
+            value={props.state.newMessageText}
+            onChange={onValueChange}
+          >
         </textarea>
         <button onClick={ addNewUserMessage }>DIALOG</button>
+      </div>
+      <div>
       </div>
     </div>
   )
