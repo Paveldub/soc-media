@@ -17,21 +17,10 @@ const App = () => {
       <Header />
       <Navigation />
       <div className='app-wrapper-content'>
-        
         <Route path="/dialogs"
-          render={() =>
-            
-            <DialogsContainer />}
-               
-          /> 
-        
+          render={() => <DialogsContainer />} /> 
         <Route path="/profile"
-          render={() =>
-            
-            <Profile />}
-          
-          />
-
+          render={() => <Profile />} />
         <Route path="/music" component={ Music } />
         <Route path="/news" component={ News } />
         <Route path="/settings" component={ Settings } />
