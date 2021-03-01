@@ -22,31 +22,25 @@ let initialState = {
   ],
 
     newPostText: 'leave your comment below'
- 
 };
 
 export const profileReducer = (state = initialState, action) => {
 
-  let stateCopy = {
-    ...state
-  }
-
   switch (action.type) {
     case addPost:
+
+      return {
+        ...state,
+        posts: [...state.posts, { id: 15, message: state.newPostText, likesCount: 1111 }],
+        newPostText: ''
+      }
       
-      let newPost = {
-        id: 5,
-        message: state.newPostText,
-        likesCount: 0
+    case updateNewText:
+      return {
+        ...state, 
+        newPostText: action.newText
       }
 
-      stateCopy.posts.push(newPost); // push data to new state copy
-      stateCopy.newPostText = '';
-      return stateCopy; // return new state data
-    case updateNewText:
-      let copyState = { ...state };
-      copyState.newPostText = action.newText;
-      return copyState;
       default:
         return state
   }
@@ -55,4 +49,4 @@ export const profileReducer = (state = initialState, action) => {
 export const addPostActionCreator =  () => ({ type: addPost });
  
 export const updateNewPostTextActionCreator =
-  (text) => ({ type: updateNewText, newText: text });  
+  (text) => ({ type: updateNewText, newText: text }); 
