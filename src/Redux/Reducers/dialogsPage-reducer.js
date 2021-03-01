@@ -63,16 +63,21 @@ export const dialogsReducer = (state = initialState, action) => {
 
   switch(action.type) {
     case userMessageValue:  
-      
       return {
         ...state,
         newMessageText: action.newText
       }  
+    
     case addUserMessage:
+      
+      let newMessage = {
+        id: 111,
+        message: state.newMessageText
+      }
 
       return {
         ...state,
-        messages: [...state.messages, { id: 111, message: state.newMessageText }],
+        messages: [...state.messages, newMessage],
         newMessageText: ''
       }
     default:
