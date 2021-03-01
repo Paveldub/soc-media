@@ -36,14 +36,15 @@ export const profileReducer = (state = initialState, action) => {
         likesCount: 0
       }
 
-      let stateCopy = { ...state };
+      let stateCopy = { ...state }; // shallow copy
 
-      stateCopy.posts = [...state.posts];
+      stateCopy.posts = [...state.posts]; // deep array copy
 
-      stateCopy.posts.push(newPost);
+      stateCopy.posts.push(newPost); // push data to new state copy
+        
       stateCopy.newPostText = '';
 
-      return stateCopy;
+      return stateCopy; // return new state data
     }
 
     case updateNewText:
