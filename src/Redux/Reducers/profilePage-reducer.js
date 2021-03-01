@@ -52,6 +52,7 @@ export const profileReducer = (state = initialState, action) => {
       let copyState = { ...state };
       
       copyState.newPostText = action.newText;
+      copyState.posts = [...state.posts];
         
       return copyState;
     } 
