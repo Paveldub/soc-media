@@ -1,33 +1,33 @@
 import { Users } from './Users';
+import { connect } from 'react-redux';
 
 import {
   followActionCreator,
   unfollowActionCreator,
-  setUsersActionCreator
-} from '../../Redux/Reducers/users-reducer';
-
-import { connect } from 'react-redux';
+  setUsersActionCreator,
+} from '../../Redux/Reducers/usersPage-reducer';
 
 const mapStateToProps = (state) => {
   return {
     users: state.usersPage.users
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     follow: (userId) => {
-      dispatch(followActionCreator(userId))
+      dispatch(followActionCreator(userId));
     },
-
     unfollow: (userId) => {
-      dispatch(unfollowActionCreator(userId))
+      dispatch(unfollowActionCreator(userId));
     },
-
     setUsers: (users) => {
-      dispatch(setUsersActionCreator(users))
-    }
-  }
-}
+      dispatch(setUsersActionCreator(users));
+    },
+  };
+};
 
-export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
+export const UsersContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Users);

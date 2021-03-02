@@ -1,0 +1,22 @@
+.photoSize img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.alignContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid crimson;
+  margin-bottom: 10px;
+}
+
+.alignContentPhoto {
+  text-align: center;
+}
+
+.buttonStyles {
+  margin-top: 10px;
+}
