@@ -37,6 +37,7 @@ export const usersReducer = (state = initialState, action) => {
           return user;
         }),
       };
+    
     case SET_USERS: 
         return {
           ...state,
