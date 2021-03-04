@@ -20,3 +20,17 @@
 .buttonStyles {
   margin-top: 10px;
 }
+
+.selectedPage {
+  font-size: 20px;
+  color: cornflowerblue;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid cornflowerblue;
+  margin-right: 3px;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+}
