@@ -73,5 +73,6 @@ export const setCurrentPageActionCreator = (currentPage) => ({
   currentPage,
 });
 
-export const setTotalUsersCountActionCreator = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount });
+export const setTotalUsersCountActionCreator =
+  (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount });
 

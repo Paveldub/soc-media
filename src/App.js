@@ -18,18 +18,15 @@ const App = () => {
     <div className="wrapper">
       <Header />
       <Navigation />
-      <div className='app-wrapper-content' style={{background: 'pink'}}>
-        <Route path="/dialogs"
-          render={() => <DialogsContainer />} /> 
-        <Route path="/profile"
-          render={() => <Profile />} />
-        
-        <Route path="/users"
-          component={() => <UsersContainer /> } />
-        
-        <Route path="/music" component={ Music } />
-        <Route path="/news" component={ News } />
-        <Route path="/settings" component={ Settings } />
+      <div className="app-wrapper-content" style={{ background: 'pink' }}>
+        <Route path="/dialogs" render={() => <DialogsContainer />} />
+        <Route path="/profile" render={() => <Profile />} />
+
+        <Route path="/users" component={() => <UsersContainer />} />
+
+        <Route path="/music" component={Music} />
+        <Route path="/news" component={News} />
+        <Route path="/settings" component={Settings} />
       </div>
     </div>
   );
