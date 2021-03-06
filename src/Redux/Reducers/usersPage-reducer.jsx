@@ -10,11 +10,10 @@ let initialState = {
   pageSize: 100,
   totalUsersCount: 0,
   currentPage: 1,
-  isFetching: false
+  isFetching: false,
 };
 
 export const usersReducer = (state = initialState, action) => {
-
   switch (action.type) {
     case FOLLOW:
       return {
@@ -55,7 +54,7 @@ export const usersReducer = (state = initialState, action) => {
         ...state,
         currentPage: action.currentPage,
       };
-    
+
     case SET_TOTAL_USERS_COUNT:
       return {
         ...state,
@@ -79,10 +78,12 @@ export const setCurrentPageActionCreator = (currentPage) => ({
   currentPage,
 });
 
-export const setTotalUsersCountActionCreator =
-  (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount });
+export const setTotalUsersCountActionCreator = (totalUsersCount) => ({
+  type: SET_TOTAL_USERS_COUNT,
+  totalUsersCount,
+});
 
 export const isFetchingDataActionCreator = (isFetching) => ({
   type: IS_FETCHING_DATA,
-  isFetching
+  isFetching,
 });

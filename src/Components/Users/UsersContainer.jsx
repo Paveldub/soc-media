@@ -24,6 +24,7 @@ class UsersApiComponent extends React.Component {
       .then((response) => {
         this.props.setUsers(response.data.items);
         this.props.setTotalUsersCount(response.data.totalCount);
+
         this.props.isFetchingData(false);
       });
   }

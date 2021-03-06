@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './styles.module.css';
 import userImg from '../../assets/images/user-male-circle.png';
+import { NavLink } from 'react-router-dom';
 
 export const UsersItems = (props) => {
- 
+
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
   let pages = [];
@@ -15,7 +16,7 @@ export const UsersItems = (props) => {
   return (
     <>
       {props.isFetching ? <div></div> : null}
-      
+
       <div className={styles.pagination}>
         {pages.map((item) => (
           <span
@@ -35,10 +36,14 @@ export const UsersItems = (props) => {
           <div key={user.id} className={styles.alignContent}>
             <span className={styles.alignContentPhoto}>
               <div className={styles.photoSize}>
-                <img
-                  src={user.photos.small !== null ? user.photos.small : userImg}
-                  alt="avatar"
-                ></img>
+                <NavLink to={"/profile" + user.id}>
+                  <img
+                    src={
+                      user.photos.small !== null ? user.photos.small : userImg
+                    }
+                    alt="avatar"
+                  ></img>
+                </NavLink>
               </div>
               <div className={styles.buttonStyles}>
                 {user.followed ? (
