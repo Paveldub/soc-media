@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import userImg from '../../assets/images/user-male-circle.png';
 
 export const UsersItems = (props) => {
+ 
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
   let pages = [];
@@ -13,6 +14,8 @@ export const UsersItems = (props) => {
 
   return (
     <>
+      {props.isFetching ? <div></div> : null}
+      
       <div className={styles.pagination}>
         {pages.map((item) => (
           <span
@@ -20,9 +23,7 @@ export const UsersItems = (props) => {
             onClick={() => {
               props.onPageChange(item);
             }}
-            className={
-              props.currentPage === item ? styles.selectedPage : ''
-            }
+            className={props.currentPage === item ? styles.selectedPage : ''}
           >
             {item}
           </span>
