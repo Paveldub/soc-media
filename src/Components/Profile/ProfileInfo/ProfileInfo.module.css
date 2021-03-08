@@ -7,3 +7,18 @@
 .profileInfoWrap {
   padding: 15px;
 }
+
+.direction {
+  display: flex;
+  flex-direction: column;
+}
+
+.directionSecond {
+  display: flex;
+  align-items: center;
+}
+
+.small {
+  width: 25px;
+  height: 25px;
+}
