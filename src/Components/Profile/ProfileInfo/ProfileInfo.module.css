@@ -22,3 +22,13 @@
   width: 25px;
   height: 25px;
 }
+
+.roundPic img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profileElems {
+  padding: 15px;
+}

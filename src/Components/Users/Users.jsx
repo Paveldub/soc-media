@@ -36,7 +36,7 @@ export const UsersItems = (props) => {
           <div key={user.id} className={styles.alignContent}>
             <span className={styles.alignContentPhoto}>
               <div className={styles.photoSize}>
-                <NavLink to={"/profile" + user.id}>
+                <NavLink to={"/profile/" + user.id}>
                   <img
                     src={
                       user.photos.small !== null ? user.photos.small : userImg
