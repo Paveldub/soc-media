@@ -6,7 +6,6 @@ import { News } from './Components/News/News'
 import { Settings } from './Components/Settings-comp/Settings'
 import { DialogsContainer } from './Components/Dialogs/DialogsContainer';
 import { UsersContainer } from './Components/Users/UsersContainer';
-import { Sidebar } from './Components/common/sidebar/sibdear';
 
 import { Route } from 'react-router-dom';
 
@@ -26,7 +25,6 @@ const App = () => {
         <Route path="/news" component={News} />
         <Route path="/settings" component={Settings} />
       </div>
-     
     </div>
   );
 }

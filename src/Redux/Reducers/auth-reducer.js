@@ -1,14 +1,15 @@
 const SET_USERS_DATA = 'SET_USERS_DATA';
+const IS_FETCHING = 'IS_FETCHING';
 
 const initialState = {
   userId: null,
-  email: null,
   login: null,
-  isAuth: false,
+  email: null,
   isFetching: false,
-};
+  isAuth: false
+}
 
-const authReducer = (state = initialState, action) => {
+export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USERS_DATA:
       return {
@@ -16,16 +17,22 @@ const authReducer = (state = initialState, action) => {
         ...action.data,
         isAuth: true
       };
-    
+    case IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.isFetching
+      };
     default:
       return state
   }
 };
 
-export const setAuthUserData = (userId, email, login) => ({
+export const setAuthUserData = (userId, login, email) => ({
   type: SET_USERS_DATA,
-  data: { userId, email, login },
+  data: { userId, login, email },
 });
 
-export default authReducer;
-
+export const isFetching = (isFetching) => ({
+  type: IS_FETCHING,
+  isFetching,
+});
