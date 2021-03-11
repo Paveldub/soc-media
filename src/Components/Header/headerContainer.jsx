@@ -3,7 +3,7 @@ import { Header } from './header';
 import * as axios from 'axios';
 import { connect } from 'react-redux';
 
-import { setAuthUserData, isFetching } from '../../Redux/Reducers/auth-reducer';
+import { setAuthUserData } from '../../Redux/Reducers/auth-reducer';
 
 export class HeaderContainer extends React.Component {
   componentDidMount() {
