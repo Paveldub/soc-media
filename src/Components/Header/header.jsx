@@ -1,22 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import style from './header.module.css';
 import { NavLink } from 'react-router-dom';
 import { Toggler } from './menu-btn/menu-btn';
-import { Sidebar } from '../common/sidebar/sibdear';
 
 export const Header = (props) => {
-
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const openHandler = () => {
-    !sidebarOpen ? setSidebarOpen(true) : setSidebarOpen(false);
-  };
-
-  let sidebar;
-
-  if (sidebarOpen) {
-    sidebar = <Sidebar sidebar={'sidebar sidebar--active'} />;
-  }
 
   return (
     <header className={style.header}>
@@ -28,7 +15,7 @@ export const Header = (props) => {
           ></img>
         </div>
 
-        <Toggler click={openHandler} />
+        <Toggler />
       </div>
 
       <div className={style.loginBlock}>
@@ -38,8 +25,6 @@ export const Header = (props) => {
           <NavLink to="/login">login</NavLink>
         )}
       </div>
-
-      {sidebar}
     </header>
   );
 };
