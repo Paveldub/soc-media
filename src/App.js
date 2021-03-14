@@ -7,6 +7,7 @@ import { Settings } from './Components/Settings-comp/Settings'
 import { DialogsContainer } from './Components/Dialogs/DialogsContainer';
 import { UsersContainer } from './Components/Users/UsersContainer';
 import { Sidebar } from './Components/common/sidebar/sidebar';
+import { ModalPage } from './Components/Modal/modal';
 import { Route } from 'react-router-dom';
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/music" component={Music} />
         <Route path="/news" component={News} />
         <Route path="/settings" component={Settings} />
+        <Route path="/modalpage" component={ModalPage}/>
       </div>
       <Sidebar />
     </div>
