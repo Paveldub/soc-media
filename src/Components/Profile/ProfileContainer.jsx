@@ -3,8 +3,8 @@ import { Profile } from './ProfileInfo/ProfileInfo';
 import { MyPostsContainer } from './MyPosts/MyPostsContainer';
 import style from './content.module.css';
 import { connect } from 'react-redux';
-import * as axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import { profileUsers } from '../../api/api';
 
 import { setProfileUsersActionCreator } from '../../Redux/Reducers/profilePage-reducer';
 
@@ -16,11 +16,9 @@ export class ProfileContainer extends React.Component {
       userId = 15;
     }
 
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-      .then((response) => {
-        this.props.setUsersProfile(response.data);
-      });
+   profileUsers(userId).then((response) => {
+     this.props.setUsersProfile(response.data);
+   });
   }
 
   render() {

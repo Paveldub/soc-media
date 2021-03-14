@@ -18,3 +18,8 @@ export const getUsers = (currentPage, pageSize) => {
 export const headerAuth = () => {
   return instance.get(`/auth/me`, {});
 };
+
+export const profileUsers = (userId) => {
+  return instance.get(`/profile/${userId}`);
+};
+  
