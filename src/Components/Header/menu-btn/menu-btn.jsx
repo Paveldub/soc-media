@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Toggler = (props) => {
+export const Toggler = () => {
 
   return (
     <div className="menu-btn" onClick={() => alert('clicked')}>
