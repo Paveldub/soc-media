@@ -55,6 +55,14 @@ export const Navigation = (props) => {
         Modal
       </NavLink>
 
+      <NavLink
+        to="/formpage"
+        className={style.item}
+        activeClassName={style.active}
+      >
+        Forms
+      </NavLink>
+
       <h4 className={style.item}>Friends list</h4>
       <ul style={{ display: 'flex', textAlign: 'center' }}>
         <Friends name={'Pavel'} key={'10'} id={'11'} />

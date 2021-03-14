@@ -8,6 +8,7 @@ import { DialogsContainer } from './Components/Dialogs/DialogsContainer';
 import { UsersContainer } from './Components/Users/UsersContainer';
 import { Sidebar } from './Components/common/sidebar/sidebar';
 import { ModalPage } from './Components/Modal/modal';
+import { FormPage } from './Components/Forms/Forms';
 import { Route } from 'react-router-dom';
 
 const App = () => {
@@ -25,7 +26,8 @@ const App = () => {
         <Route path="/music" component={Music} />
         <Route path="/news" component={News} />
         <Route path="/settings" component={Settings} />
-        <Route path="/modalpage" component={ModalPage}/>
+        <Route path="/modalpage" component={ModalPage} />
+        <Route path="/formpage" component={FormPage} />
       </div>
       <Sidebar />
     </div>
