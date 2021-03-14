@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 
@@ -66,10 +66,20 @@ const CloseModalButton = styled(MdClose)`
 `;
 
 export const Modal = ({ showModal, setShowModal }) => {
+  const modalRef = useRef();
+
+  const closeModal = (e) => {
+    let target = e.target;
+
+    if (modalRef.current === target) {
+      setShowModal(false);
+    }
+  };
+
   return (
     <>
       {showModal ? (
-        <Background>
+        <Background ref={modalRef} onClick={closeModal}>
           <ModalWrap showModal={showModal}>
             <ModalImg src="https://i.pinimg.com/originals/c0/0f/51/c00f5130d9059d0b02d607001b9d3231.jpg" />
             <ModalContent>
