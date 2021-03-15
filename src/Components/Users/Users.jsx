@@ -5,6 +5,9 @@ import { NavLink } from 'react-router-dom';
 import * as axios from 'axios';
 
 export const UsersItems = (props) => {
+
+  console.log(props.followingInProgress);
+
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
   let pages = [];
@@ -48,7 +51,11 @@ export const UsersItems = (props) => {
               <div className={styles.buttonStyles}>
                 {user.followed ? (
                   <button
+                    disabled={props.followingInProgress.some(
+                      (id) => id === user.id
+                    )}
                     onClick={() => {
+                      props.followingProgressData(true, user.id);
                       axios
                         .delete(
                           `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
@@ -63,6 +70,7 @@ export const UsersItems = (props) => {
                           if (response.data.resultCode === 0) {
                             props.unfollow(user.id);
                           }
+                          props.followingProgressData(false, user.id);
                         });
                     }}
                   >
@@ -70,7 +78,11 @@ export const UsersItems = (props) => {
                   </button>
                 ) : (
                   <button
+                    disabled={props.followingInProgress.some(
+                      (id) => id === user.id
+                    )}
                     onClick={() => {
+                      props.followingProgressData(true, user.id);
                       axios
                         .post(
                           `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
@@ -86,6 +98,7 @@ export const UsersItems = (props) => {
                           if (response.data.resultCode === 0) {
                             props.follow(user.id);
                           }
+                          props.followingProgressData(false, user.id);
                         });
                     }}
                   >

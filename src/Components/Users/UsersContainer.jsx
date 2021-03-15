@@ -12,6 +12,7 @@ import {
   setCurrentPageActionCreator,
   setTotalUsersCountActionCreator,
   isFetchingDataActionCreator,
+  followingInProgressActionCreator,
 } from '../../Redux/Reducers/usersPage-reducer';
 
 class UsersApiComponent extends React.Component {
@@ -53,6 +54,8 @@ class UsersApiComponent extends React.Component {
             currentPage={this.props.currentPage}
             unfollow={this.props.unfollow}
             follow={this.props.follow}
+            followingProgressData={this.props.followingProgressData}
+            followingInProgress={this.props.followingInProgress}
           />
         )}
       </>
@@ -67,6 +70,7 @@ const mapStateToProps = (state) => {
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.followingInProgress
   };
 };
 
@@ -89,6 +93,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     isFetchingData: (isFetching) => {
       dispatch(isFetchingDataActionCreator(isFetching));
+    },
+    followingProgressData: (followingInProgress, userId) => {
+      dispatch(followingInProgressActionCreator(followingInProgress, userId));
     },
   };
 };
