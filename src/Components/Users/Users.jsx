@@ -6,8 +6,6 @@ import * as axios from 'axios';
 
 export const UsersItems = (props) => {
 
-  console.log(props.followingInProgress);
-
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
   let pages = [];
