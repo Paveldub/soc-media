@@ -1,4 +1,7 @@
 API: 
 https://social-network.samuraijs.com/docs
 
-Soc media
+1) Redux
+2) Hooks
+3) Axios
+4) Redux thunk
