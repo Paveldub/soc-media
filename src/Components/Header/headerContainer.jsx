@@ -12,7 +12,6 @@ export class HeaderContainer extends React.Component {
 
     headerAuth().then((response) => {
       if (response.data.resultCode === 0) {
-        console.log(response)
         let { id, login, email } = response.data.data;
         this.props.setAuthUserData(id, login, email);
       }

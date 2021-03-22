@@ -2,6 +2,7 @@ import React from 'react';
 import style from './ProfileInfo.module.css';
 import { Preloader } from '../../common/preloader';
 import userImg from '../../../assets/images/user-male-circle.png';
+import ProfileStatus from '../ProfileStatus/ProfileStatus';
 
 export const Profile = (props) => {
 
@@ -11,13 +12,8 @@ export const Profile = (props) => {
   
     return (
       <>
-        <div className={style.profileInfoWrap}>
-          <img
-            className={style.content_img}
-            src="https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-          />
-        </div>
         <div className={style.profileElems}>
+          <ProfileStatus status={'test status'}/>
           <div className={style.roundPic}>
             {props.profile.photos.large ? (
               <img src={props.profile.photos.large}></img>
