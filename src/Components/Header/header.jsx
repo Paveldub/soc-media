@@ -22,7 +22,7 @@ export const Header = (props) => {
         {props.isAuth ? (
           <span>{props.login}</span>
         ) : (
-          <NavLink to="/login">login</NavLink>
+          <NavLink to="/login">Login</NavLink>
         )}
       </div>
     </header>

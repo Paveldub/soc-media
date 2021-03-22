@@ -1,16 +1,14 @@
 import React from 'react';
 import style from './ProfileInfo.module.css';
 import { Preloader } from '../../common/preloader';
-import { Redirect } from 'react-router-dom';
 import userImg from '../../../assets/images/user-male-circle.png';
 
 export const Profile = (props) => {
-  if (!props.isAuth) return <Redirect to="/login" />;
 
   if (!props.profile) {
     return <Preloader />;
   }
-
+  
     return (
       <>
         <div className={style.profileInfoWrap}>

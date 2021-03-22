@@ -5,6 +5,7 @@ import style from './content.module.css';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { profileUsers } from '../../api/api';
+import { withAuthRedirect } from '../../HOC/withAuthRedirect';
 
 import { setProfileUsersActionCreator } from '../../Redux/Reducers/profilePage-reducer';
 
@@ -22,6 +23,7 @@ export class ProfileContainer extends React.Component {
   }
 
   render() {
+
     return (
       <div className={style.content}>
         <Profile profile={this.props.profile} {...this.props} />
@@ -32,8 +34,7 @@ export class ProfileContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  profile: state.profilePage.profile,
-  isAuth: state.auth.isAuth
+  profile: state.profilePage.profile
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -44,7 +45,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const WithUrlDataContainerComponent = withRouter(ProfileContainer);
+let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+
+const WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
 
 export default ProfileContainer = connect(
   mapStateToProps,

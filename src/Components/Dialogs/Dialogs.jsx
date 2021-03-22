@@ -1,13 +1,10 @@
 import React from 'react';
 import style from './Dialogs.module.css';
-import { Redirect } from 'react-router-dom';
 
 import { DialogItem } from './DialogItems/DialogItems'
 import { Message } from './Message/Message';
 
 export const Dialogs = (props) => {
-  
-  console.log(props.isAuth);
 
   const onValueChange = (e) => {
     let target = e.target.value;
@@ -19,7 +16,6 @@ export const Dialogs = (props) => {
     props.addNewUserMessage();
   }
 
-  if (!props.isAuth) return <Redirect to="/login" />;
    
   return (
     <div className={style.dialogWrap}>

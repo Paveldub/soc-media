@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { UsersItems } from './Users';
 import { Preloader } from '../common/preloader';
+import { withAuthRedirect } from '../../HOC/withAuthRedirect';
 
 import { getUsers } from '../../api/api';
 
@@ -100,7 +101,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+let AuthRedirectComponent = withAuthRedirect(UsersApiComponent);
+
 export const UsersContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(UsersApiComponent);
+)(AuthRedirectComponent);
