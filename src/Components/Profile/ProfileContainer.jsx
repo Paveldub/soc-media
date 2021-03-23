@@ -28,7 +28,7 @@ export class ProfileContainer extends React.Component {
     });
 
     getStatus(userId).then((response) => {
-      this.props.setUserStatus(response.data)
+      this.props.setUserStatus(response.data);
     });
   }
 
@@ -39,7 +39,8 @@ export class ProfileContainer extends React.Component {
         <Profile
           {...this.props}
           profile={this.props.profile}
-          updateStatus={this.props.updateStatus}
+          setUserStatus={this.props.setUserStatus}
+          status={this.props.status}
         />
         <MyPostsContainer />
       </div>
@@ -49,7 +50,7 @@ export class ProfileContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
-  status: state.profilePage.status
+  status: state.profilePage.status,
 });
 
 const mapDispatchToProps = (dispatch) => {

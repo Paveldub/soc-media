@@ -32,5 +32,5 @@ export const getStatus = (userId) => {
 };
 
 export const updateStatus = (status) => {
-  return instance.put(`/profile/status`, { status: status });
+  return instance.put(`/profile/status/`, { status: status });
 };

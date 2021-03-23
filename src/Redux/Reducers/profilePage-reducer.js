@@ -2,7 +2,6 @@ const ADD_POST = 'ADD-POST';
 const updateNewText = 'UPDATE-NEW-POST-TEXT';
 const SET_NEW_PROFILE = 'SET_NEW_PROFILE';
 const SET_STATUS = 'SET_STATUS';
-const UPDATE_STATUS = 'UPDATE_STATUS';
 
 let initialState = {
   posts: [
@@ -61,12 +60,6 @@ export const profileReducer = (state = initialState, action) => {
         status: action.status,
       };
 
-    case UPDATE_STATUS:
-      return {
-        ...state,
-        status: action.status,
-      };
-
     default:
       return state;
   }
@@ -83,10 +76,7 @@ export const setProfileUsersActionCreator =
   (profile) => ({ type: SET_NEW_PROFILE, profile });
 
 
-export const setStatusActionCreator = (status) => ({ type: SET_STATUS, status });
-
-export const updateStatusActionCreator = (status) => ({
-  type: UPDATE_STATUS,
+export const setStatusActionCreator = (status) => ({
+  type: SET_STATUS,
   status,
 });
-

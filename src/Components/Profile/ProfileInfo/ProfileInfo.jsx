@@ -9,12 +9,12 @@ export const Profile = (props) => {
     return <Preloader />;
   }
 
-  console.log(props.updateStatus);
+  console.log(props.setUserStatus);
 
   return (
     <>
       <div className={style.profileElems}>
-        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+        <ProfileStatus status={props.status} setUserStatus={props.setUserStatus}/>
         <div className={style.roundPic}>
           {props.profile.photos.large ? (
             <img src={props.profile.photos.large}></img>
