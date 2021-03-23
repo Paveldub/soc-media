@@ -3,31 +3,44 @@ import style from './content.module.css';
 
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { withAuthRedirect } from '../../HOC/withAuthRedirect';
 
 import { Profile } from './ProfileInfo/ProfileInfo';
 import { MyPostsContainer } from './MyPosts/MyPostsContainer';
 
-import { profileUsers } from '../../api/api';
-import { setProfileUsersActionCreator } from '../../Redux/Reducers/profilePage-reducer';
+import { profileUsers, getStatus } from '../../api/api';
+
+import {
+  setProfileUsersActionCreator,
+  setStatusActionCreator,
+} from '../../Redux/Reducers/profilePage-reducer';
 
 export class ProfileContainer extends React.Component {
+
   componentDidMount() {
     let userId = this.props.match.params.userId;
+
     if (!userId) {
       userId = 15;
     }
 
     profileUsers(userId).then((response) => {
      this.props.setUsersProfile(response.data);
-   });
+    });
+
+    getStatus(userId).then((response) => {
+      this.props.setUserStatus(response.data)
+    });
   }
 
   render() {
 
     return (
       <div className={style.content}>
-        <Profile profile={this.props.profile} {...this.props} />
+        <Profile
+          {...this.props}
+          profile={this.props.profile}
+          updateStatus={this.props.updateStatus}
+        />
         <MyPostsContainer />
       </div>
     );
@@ -35,7 +48,8 @@ export class ProfileContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  profile: state.profilePage.profile
+  profile: state.profilePage.profile,
+  status: state.profilePage.status
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -43,13 +57,14 @@ const mapDispatchToProps = (dispatch) => {
     setUsersProfile: (profile) => {
       dispatch(setProfileUsersActionCreator(profile));
     },
+    setUserStatus: (status) => {
+      dispatch(setStatusActionCreator(status));
+    },
   };
 };
 
 
 const WithUrlDataContainerComponent = withRouter(ProfileContainer);
 
-export default ProfileContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(WithUrlDataContainerComponent);
+export default ProfileContainer = connect(mapStateToProps, mapDispatchToProps)
+(WithUrlDataContainerComponent);

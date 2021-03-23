@@ -107,7 +107,6 @@ export const UsersItems = (props) => {
             </span>
             <span>
               <div>{user.name}</div>
-              <div>{user.status}</div>
             </span>
             <span>
               <div>Belarus</div>
