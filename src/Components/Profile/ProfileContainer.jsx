@@ -39,7 +39,6 @@ export class ProfileContainer extends React.Component {
         <Profile
           {...this.props}
           profile={this.props.profile}
-          setUserStatus={this.props.setUserStatus}
           status={this.props.status}
         />
         <MyPostsContainer />
