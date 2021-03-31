@@ -1,7 +1,8 @@
 const ADD_POST = 'ADD-POST';
 const updateNewText = 'UPDATE-NEW-POST-TEXT';
 const SET_NEW_PROFILE = 'SET_NEW_PROFILE';
-const SET_STATUS = 'SET_STATUS';
+const UPDATE_USER_STATUS = 'UPDATE_USER_STATUS';
+const GET_USER_STATUS = 'GET_USER_STATUS';
 
 let initialState = {
   posts: [
@@ -24,7 +25,8 @@ let initialState = {
 
   newPostText: 'leave your comment below',
   profile: null,
-  status: ''
+  status: '',
+  getStatus: ''
 };
 
 export const profileReducer = (state = initialState, action) => {
@@ -54,10 +56,16 @@ export const profileReducer = (state = initialState, action) => {
         profile: action.profile,
       };
 
-    case SET_STATUS:
+    case UPDATE_USER_STATUS:
       return {
         ...state,
         status: action.status,
+      };
+
+    case GET_USER_STATUS:
+      return {
+        ...state,
+        getStatus: action.getStatus,
       };
 
     default:
@@ -75,8 +83,5 @@ export const updateNewPostTextActionCreator = (text) => ({
 export const setProfileUsersActionCreator =
   (profile) => ({ type: SET_NEW_PROFILE, profile });
 
-
-export const setStatusActionCreator = (status) => ({
-  type: SET_STATUS,
-  status,
-});
+export const getUserStatusAC = (getStatus) => ({ type: GET_USER_STATUS, getStatus });
+export const updateUserStatusAC = (status) => ({ type: UPDATE_USER_STATUS, status});

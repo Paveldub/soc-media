@@ -12,7 +12,7 @@ export const Profile = (props) => {
   return (
     <>
       <div className={style.profileElems}>
-        <ProfileStatus status={props.status} />
+        <ProfileStatus getStatus={props.getStatus} />
         <div className={style.roundPic}>
           {props.profile.photos.large ? (
             <img src={props.profile.photos.large}></img>

@@ -7,11 +7,12 @@ import { withRouter } from 'react-router-dom';
 import { Profile } from './ProfileInfo/ProfileInfo';
 import { MyPostsContainer } from './MyPosts/MyPostsContainer';
 
-import { profileUsers, getStatus } from '../../api/api';
+import { profileUsers, getUserStatus, updateUserStatus } from '../../api/api';
 
 import {
   setProfileUsersActionCreator,
-  setStatusActionCreator,
+  getUserStatusAC,
+  updateUserStatusAC,
 } from '../../Redux/Reducers/profilePage-reducer';
 
 export class ProfileContainer extends React.Component {
@@ -27,8 +28,14 @@ export class ProfileContainer extends React.Component {
      this.props.setUsersProfile(response.data);
     });
 
-    getStatus(userId).then((response) => {
-      this.props.setUserStatus(response.data);
+    getUserStatus(userId).then((response) => {
+      this.props.getUserStatusAC(response.data);
+    });
+
+    updateUserStatus(userId).then((response) => {
+      if (response.data.resultColde === 0) {
+        this.props.updateUserStatusAC(response.data);
+      }
     });
   }
 
@@ -40,6 +47,7 @@ export class ProfileContainer extends React.Component {
           {...this.props}
           profile={this.props.profile}
           status={this.props.status}
+          getStatus={this.props.getStatus}
         />
         <MyPostsContainer />
       </div>
@@ -50,6 +58,7 @@ export class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
+  getStatus: state.profilePage.getStatus
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -57,12 +66,14 @@ const mapDispatchToProps = (dispatch) => {
     setUsersProfile: (profile) => {
       dispatch(setProfileUsersActionCreator(profile));
     },
-    setUserStatus: (status) => {
-      dispatch(setStatusActionCreator(status));
+    getUserStatusAC: (getStatus) => {
+      dispatch(getUserStatusAC(getStatus));
     },
+    updateUserStatusAC: (status) => {
+      dispatch(updateUserStatusAC(status));
+    }
   };
 };
-
 
 const WithUrlDataContainerComponent = withRouter(ProfileContainer);
 
