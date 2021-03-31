@@ -56,13 +56,6 @@ export const Navigation = (props) => {
       </NavLink>
 
       <NavLink
-        to="/formpage"
-        className={style.item}
-        activeClassName={style.active}
-      >
-        Forms
-      </NavLink>
-      <NavLink
         to="/datepicker"
         className={style.item}
         activeClassName={style.active}

@@ -8,7 +8,6 @@ import { DialogsContainer } from './Components/Dialogs/DialogsContainer';
 import { UsersContainer } from './Components/Users/UsersContainer';
 import { Sidebar } from './Components/common/sidebar/sidebar';
 import { ModalPage } from './Components/Modal/modal';
-import { FormPage } from './Components/Forms/Forms';
 import { DatepickerComponent } from './Components/Datepicker/datepicker';
 import { LoginPage } from './Components/Login/Login';
 import { Route } from 'react-router-dom';
@@ -27,7 +26,6 @@ const App = () => {
         <Route path="/news" component={News} />
         <Route path="/settings" component={Settings} />
         <Route path="/modalpage" component={ModalPage} />
-        <Route path="/formpage" component={FormPage} />
         <Route path="/datepicker" component={DatepickerComponent} />
         <Route path="/login" component={LoginPage} />
       </div>
