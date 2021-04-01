@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Toggler } from './menu-btn/menu-btn';
 
 export const Header = (props) => {
+
   return (
     <header className={style.header}>
       <div className="container">
