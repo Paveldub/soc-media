@@ -75,7 +75,11 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateUserStatusAC: (status) => {
       dispatch(updateUserStatusAC(status));
+
     },
+    updateUserStatusAC: (status) => {
+      dispatch(updateUserStatusAC(status));
+    }
   };
 };
 

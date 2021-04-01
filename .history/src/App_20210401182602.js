@@ -27,7 +27,11 @@ const App = () => {
         <Route path="/settings" component={Settings} />
         <Route path="/modalpage" component={ModalPage} />
         <Route path="/datepicker" component={DatepickerComponent} />
+<<<<<<< HEAD
         <Route path="/login" component={Login} />
+=======
+        <Route path="/login" component={LoginForm} />
+>>>>>>> 7fddd5977de173cadfe24627bf68355f5fc0da7a
       </div>
       <Sidebar />
     </div>

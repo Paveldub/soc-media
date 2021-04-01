@@ -61,7 +61,11 @@ export class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
+<<<<<<< HEAD
   getStatus: state.profilePage.getStatus,
+=======
+  getStatus: state.profilePage.getStatus
+>>>>>>> 7fddd5977de173cadfe24627bf68355f5fc0da7a
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -71,11 +75,16 @@ const mapDispatchToProps = (dispatch) => {
     },
     getUserStatusAC: (getStatus) => {
       dispatch(getUserStatusAC(getStatus));
-
+<<<<<<< HEAD
     },
     updateUserStatusAC: (status) => {
       dispatch(updateUserStatusAC(status));
+=======
+>>>>>>> 7fddd5977de173cadfe24627bf68355f5fc0da7a
     },
+    updateUserStatusAC: (status) => {
+      dispatch(updateUserStatusAC(status));
+    }
   };
 };
 
