@@ -27,8 +27,14 @@ export class ProfileContainer extends React.Component {
       this.props.setUsersProfile(response.data);
     });
 
-    getUserStatus(userId).then((response) => {
+    getUserStatus(getStatus).then((response) => {
       this.props.getUserStatusAC(response.data);
+    });
+
+    updateUserStatus(userId).then((response) => {
+      if (response.data.resultColde === 0) {
+        this.props.updateUserStatusAC(response.data);
+      }
     });
   }
 
@@ -60,6 +66,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     getUserStatusAC: (getStatus) => {
       dispatch(getUserStatusAC(getStatus));
+    },
+    updateUserStatusAC: (status) => {
+      dispatch(updateUserStatusAC(status));
     },
   };
 };

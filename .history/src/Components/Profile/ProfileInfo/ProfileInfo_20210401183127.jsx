@@ -9,6 +9,8 @@ export const Profile = (props) => {
     return <Preloader />;
   }
 
+  console.log(props.status);
+
   return (
     <>
       <div className={style.profileElems}>
