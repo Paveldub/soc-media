@@ -63,14 +63,6 @@ export const Navigation = (props) => {
         Datepicker
       </NavLink>
 
-      <NavLink
-        to="/login"
-        className={style.item}
-        activeClassName={style.active}
-      >
-        Login
-      </NavLink>
-
       <h4 className={style.item}>Friends list</h4>
       <ul style={{ display: 'flex', textAlign: 'center' }}>
         <Friends name={'Pavel'} key={'10'} id={'11'} />
