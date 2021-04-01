@@ -7,15 +7,15 @@ import { withRouter } from 'react-router-dom';
 import { Profile } from './ProfileInfo/ProfileInfo';
 import { MyPostsContainer } from './MyPosts/MyPostsContainer';
 
-import { profileUsers, getUserStatus, updateUserStatus } from '../../api/api';
+import { profileUsers, getStatus } from '../../api/api';
 
 import {
   setProfileUsersActionCreator,
-  getUserStatusAC,
-  updateUserStatusAC,
+  setStatusActionCreator,
 } from '../../Redux/Reducers/profilePage-reducer';
 
 export class ProfileContainer extends React.Component {
+
   componentDidMount() {
     let userId = this.props.match.params.userId;
 
@@ -24,28 +24,23 @@ export class ProfileContainer extends React.Component {
     }
 
     profileUsers(userId).then((response) => {
-      this.props.setUsersProfile(response.data);
+     this.props.setUsersProfile(response.data);
     });
 
-    getUserStatus(userId).then((response) => {
-      this.props.getUserStatusAC(response.data);
-    });
-
-    updateUserStatus(userId).then((response) => {
-      if (response.data.resultColde === 0) {
-        this.props.updateUserStatusAC(response.data);
-      }
+    getStatus(userId).then((response) => {
+      this.props.setUserStatus(response.data);
     });
   }
 
   render() {
+
     return (
       <div className={style.content}>
         <Profile
           {...this.props}
           profile={this.props.profile}
+          setUserStatus={this.props.setUserStatus}
           status={this.props.status}
-          getStatus={this.props.getStatus}
         />
         <MyPostsContainer />
       </div>
@@ -56,7 +51,6 @@ export class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
-  getStatus: state.profilePage.getStatus,
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -64,18 +58,14 @@ const mapDispatchToProps = (dispatch) => {
     setUsersProfile: (profile) => {
       dispatch(setProfileUsersActionCreator(profile));
     },
-    getUserStatusAC: (getStatus) => {
-      dispatch(getUserStatusAC(getStatus));
-    },
-    updateUserStatusAC: (status) => {
-      dispatch(updateUserStatusAC(status));
+    setUserStatus: (status) => {
+      dispatch(setStatusActionCreator(status));
     },
   };
 };
 
+
 const WithUrlDataContainerComponent = withRouter(ProfileContainer);
 
-export default ProfileContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(WithUrlDataContainerComponent);
+export default ProfileContainer = connect(mapStateToProps, mapDispatchToProps)
+(WithUrlDataContainerComponent);

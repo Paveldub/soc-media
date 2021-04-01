@@ -27,11 +27,10 @@ export const getProfile = (userId) => {
   return instance.get(`/profile/${userId}`);
 };
 
-// status API
-export const getUserStatus = (userId) => {
+export const getStatus = (userId) => {
   return instance.get(`/profile/status/${userId}`);
 };
 
-export const updateUserStatus = (status) => {
+export const updateStatus = (status) => {
   return instance.put(`/profile/status/`, { status: status });
 };

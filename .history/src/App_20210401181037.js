@@ -10,7 +10,7 @@ import { Sidebar } from './Components/common/sidebar/sidebar';
 import { ModalPage } from './Components/Modal/modal';
 import { FormPage } from './Components/Forms/Forms';
 import { DatepickerComponent } from './Components/Datepicker/datepicker';
-import { Login } from './Components/Login/Login';
+import { LoginPage } from './Components/Login/Login';
 import { Route } from 'react-router-dom';
 
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
         <Route path="/modalpage" component={ModalPage} />
         <Route path="/formpage" component={FormPage} />
         <Route path="/datepicker" component={DatepickerComponent} />
-        <Route path="/login" component={Login} />
+        <Route path="/login" component={LoginPage} />
       </div>
       <Sidebar />
     </div>

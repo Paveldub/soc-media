@@ -9,7 +9,7 @@ export const Profile = (props) => {
     return <Preloader />;
   }
 
-  console.log(props.status);
+  console.log(props.setUserStatus);
 
   return (
     <>

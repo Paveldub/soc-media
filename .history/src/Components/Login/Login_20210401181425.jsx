@@ -3,6 +3,7 @@ import React from 'react';
 export const LoginForm = (props) => {
   return (
     <>
+      <h1>Login</h1>
       <form>
         <div>
           <input type="text" placeholder="Login" />
