@@ -13,7 +13,6 @@ const reducers = combineReducers({
   friends: friendsReducer,
   usersPage: usersReducer,
   auth: authReducer,
-  form: formReducer,
 });
 
 export const store = createStore(reducers);

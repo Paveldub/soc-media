@@ -2,10 +2,11 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 export const LoginForm = (props) => {
+  const { handleSubmit } = props;
 
   return (
     <>
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div>
           <Field
             name={'login'}
@@ -26,11 +27,7 @@ export const LoginForm = (props) => {
           <label>
             {' '}
             Remember me
-            <Field
-              type="checkbox"
-              component="input"
-              name={'rememberMe'}
-            />
+            <Field type="checkbox" component="input" name={'rememberMe'} />
           </label>
         </div>
         <div>
@@ -47,15 +44,10 @@ const LoginReduxForm = reduxForm({
 })(LoginForm);
 
 export const Login = (props) => {
-
-  const onSubmit = (formData) => {
-    console.log(formData);
-  };
-  
   return (
     <>
       <h1>Login</h1>
-      <LoginReduxForm onSubmit={onSubmit} />
+      <LoginReduxForm />
     </>
   );
 };
