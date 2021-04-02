@@ -11,7 +11,7 @@ const reducers = combineReducers({
   dialogsPage: dialogsReducer,
   friends: friendsReducer,
   usersPage: usersReducer,
-  auth: authReducer
+  auth: authReducer,
 });
 
 export const store = createStore(reducers);

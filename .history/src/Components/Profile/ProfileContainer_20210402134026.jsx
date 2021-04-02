@@ -12,6 +12,7 @@ import { profileUsers, getUserStatus } from '../../api/api';
 import {
   setProfileUsersActionCreator,
   getUserStatusAC,
+  updateUserStatusAC,
 } from '../../Redux/Reducers/profilePage-reducer';
 
 export class ProfileContainer extends React.Component {
