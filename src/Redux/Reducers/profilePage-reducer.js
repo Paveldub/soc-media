@@ -1,5 +1,5 @@
 const ADD_POST = 'ADD-POST';
-const updateNewText = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_NEW_PROFILE = 'SET_NEW_PROFILE';
 const UPDATE_USER_STATUS = 'UPDATE_USER_STATUS';
 const GET_USER_STATUS = 'GET_USER_STATUS';
@@ -23,7 +23,6 @@ let initialState = {
     },
   ],
 
-  newPostText: '',
   profile: null,
   status: '',
   getStatus: '',
@@ -32,19 +31,15 @@ let initialState = {
 export const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
-      let newPost = {
-        id: 15,
-        message: state.newPostText,
-        likesCount: 1111,
-      };
 
+      let body = action.addMessageBody;
+      
       return {
         ...state,
-        posts: [...state.posts, newPost],
-        newPostText: '',
+        posts: [...state.posts, { id: 1, message: body }],
       };
 
-    case updateNewText:
+    case UPDATE_NEW_POST_TEXT:
       return {
         ...state,
         newPostText: action.newText,
@@ -73,10 +68,13 @@ export const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPostActionCreator = () => ({ type: ADD_POST });
+export const addPostActionCreator = (addMessageBody) => ({
+  type: ADD_POST,
+  addMessageBody,
+});
 
 export const updateNewPostTextActionCreator = (text) => ({
-  type: updateNewText,
+  type: UPDATE_NEW_POST_TEXT,
   newText: text,
 });
 

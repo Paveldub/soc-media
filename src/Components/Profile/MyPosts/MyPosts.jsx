@@ -2,24 +2,20 @@ import React from 'react';
 import { Post } from './Post/Post';
 import style from './MyPosts.module.css';
 
+import { Field, reduxForm } from 'redux-form';
+
 export const MyPosts = (props) => {
-  let addPost = () => {
-    props.addPost();
-  };
 
-  let onValueChange = (e) => {
-    let text = e.target.value;
-
-    props.updateNewPostText(text);
+  const addPostValue = (value) => {
+    props.addPost(value.addPost);
+    
+    console.log(value.addPost);
   };
 
   return (
     <>
       <div className={style.postWrap}>
-        <div>
-          <textarea onChange={onValueChange} value={props.newPostText} />
-          <button onClick={addPost}>Add post</button>
-        </div>
+        <AddPostReduxForm onSubmit={addPostValue} />
 
         {props.posts.map((post) => (
           <Post
@@ -33,3 +29,21 @@ export const MyPosts = (props) => {
     </>
   );
 };
+
+export const addPostForm = (props) => {
+
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <Field
+        component='textarea'
+        name='addPost'
+        value={props.newPostText} />
+      <button>Add post</button>
+    </form>
+  );
+};
+
+export const AddPostReduxForm = reduxForm({
+  // a unique name for the form
+  form: 'addPostBody',
+})(addPostForm);
