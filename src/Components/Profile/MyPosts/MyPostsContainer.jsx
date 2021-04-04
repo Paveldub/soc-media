@@ -2,7 +2,6 @@ import { MyPosts } from './MyPosts';
 
 import {
   addPostActionCreator,
-  updateNewPostTextActionCreator,
 } from '../../../Redux/Reducers/profilePage-reducer';
 
 import { connect } from 'react-redux';
@@ -18,11 +17,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addPost: (addMessageBody) => {
       dispatch(addPostActionCreator(addMessageBody));
-    },
-
-    updateNewPostText: (target) => {
-      dispatch(updateNewPostTextActionCreator(target));
-    },
+    }
   };
 };
 

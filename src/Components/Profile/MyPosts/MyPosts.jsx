@@ -6,16 +6,14 @@ import { Field, reduxForm } from 'redux-form';
 
 export const MyPosts = (props) => {
 
-  const addPostValue = (value) => {
+  const addNewPost = (value) => {
     props.addPost(value.addPost);
-    
-    console.log(value.addPost);
   };
 
   return (
     <>
       <div className={style.postWrap}>
-        <AddPostReduxForm onSubmit={addPostValue} />
+        <AddPostReduxForm onSubmit={addNewPost} />
 
         {props.posts.map((post) => (
           <Post
@@ -30,7 +28,7 @@ export const MyPosts = (props) => {
   );
 };
 
-export const addPostForm = (props) => {
+export const addNewPostForm = (props) => {
 
   return (
     <form onSubmit={props.handleSubmit}>
@@ -46,4 +44,4 @@ export const addPostForm = (props) => {
 export const AddPostReduxForm = reduxForm({
   // a unique name for the form
   form: 'addPostBody',
-})(addPostForm);
+})(addNewPostForm);

@@ -33,7 +33,7 @@ export const profileReducer = (state = initialState, action) => {
     case ADD_POST:
 
       let body = action.addMessageBody;
-      
+
       return {
         ...state,
         posts: [...state.posts, { id: 1, message: body }],
@@ -71,11 +71,6 @@ export const profileReducer = (state = initialState, action) => {
 export const addPostActionCreator = (addMessageBody) => ({
   type: ADD_POST,
   addMessageBody,
-});
-
-export const updateNewPostTextActionCreator = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: text,
 });
 
 export const setProfileUsersActionCreator = (profile) => ({
