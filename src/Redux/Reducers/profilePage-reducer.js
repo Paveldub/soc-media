@@ -23,7 +23,7 @@ let initialState = {
     },
   ],
 
-  newPostText: 'leave your comment below',
+  newPostText: '',
   profile: null,
   status: '',
   getStatus: '',

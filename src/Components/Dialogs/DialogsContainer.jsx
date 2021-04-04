@@ -1,5 +1,4 @@
 import {
-  updateNewMessageActionCreator,
   addUserMessageActionCreator,
 } from '../../Redux/Reducers/dialogsPage-reducer';
 
@@ -18,12 +17,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onValueChange: (text) => {
-      dispatch(updateNewMessageActionCreator(text));
-    },
-
-    addNewUserMessage: () => {
-      dispatch(addUserMessageActionCreator());
+    addNewUserMessage: (addMessageBody) => {
+      dispatch(addUserMessageActionCreator(addMessageBody));
     },
   };
 };
