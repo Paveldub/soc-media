@@ -4,6 +4,12 @@ import style from './MyPosts.module.css';
 
 import { Field, reduxForm } from 'redux-form';
 
+// helper validator 
+import { required, maxLengthCreator } from '../../../helpers/validators';
+import { Textarea } from '../../common/FormControls/FormControls';
+
+const maxLength10 = maxLengthCreator(10);
+
 export const MyPosts = (props) => {
 
   const addNewPost = (value) => {
@@ -28,14 +34,17 @@ export const MyPosts = (props) => {
   );
 };
 
-export const addNewPostForm = (props) => {
+export const AddNewPostForm = (props) => {
 
   return (
     <form onSubmit={props.handleSubmit}>
       <Field
-        component='textarea'
-        name='addPost'
-        value={props.newPostText} />
+        component={Textarea}
+        name="addPost"
+        value={props.newPostText}
+        validate={[required, maxLength10]}
+        placeholder="Add message. Max length 10 symbols"
+      />
       <button>Add post</button>
     </form>
   );
@@ -44,4 +53,4 @@ export const addNewPostForm = (props) => {
 export const AddPostReduxForm = reduxForm({
   // a unique name for the form
   form: 'addPostBody',
-})(addNewPostForm);
+})(AddNewPostForm);
