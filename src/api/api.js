@@ -35,3 +35,12 @@ export const getUserStatus = (userId) => {
 export const updateUserStatus = (status) => {
   return instance.put(`/profile/status/`, { status: status });
 };
+
+// LOGIN & LOGOUT
+export const login = (email, password, rememberMe = false) => {
+  return instance.post(`/auth/login`, { email, password, rememberMe });
+};
+
+export const logout = () => {
+  return instance.delete(`/auth/login`);
+};
