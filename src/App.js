@@ -19,6 +19,7 @@ const App = () => {
       <HeaderContainer />
       <Navigation />
       <div className="app-wrapper-content" style={{ background: 'pink' }}>
+        <Route path="/login" component={Login} />
         <Route exact path="/dialogs" render={() => <DialogsContainer />} />
         <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
         <Route path="/users" component={() => <UsersContainer />} />
@@ -27,7 +28,6 @@ const App = () => {
         <Route path="/settings" component={Settings} />
         <Route path="/modalpage" component={ModalPage} />
         <Route path="/datepicker" component={DatepickerComponent} />
-        <Route path="/login" component={Login} />
       </div>
       <Sidebar />
     </div>

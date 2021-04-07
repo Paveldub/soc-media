@@ -7,18 +7,26 @@ export const Navigation = (props) => {
   return (
     <nav className={style.nav}>
       <NavLink
+        to="/login"
+        className={style.item}
+        activeClassName={style.active}
+      >
+        Login
+      </NavLink>
+      
+      <NavLink
         to="/profile"
         className={style.item}
         activeClassName={style.active}
       >
-        Profile
+        Профиль
       </NavLink>
       <NavLink
         to="/dialogs"
         className={style.item}
         activeClassName={style.active}
       >
-        Messages
+        Сообщения
       </NavLink>
 
       <NavLink
@@ -26,7 +34,7 @@ export const Navigation = (props) => {
         className={style.item}
         activeClassName={style.active}
       >
-        Users
+        Пользователи
       </NavLink>
 
       <NavLink
@@ -34,24 +42,24 @@ export const Navigation = (props) => {
         className={style.item}
         activeClassName={style.active}
       >
-        Music
+        Музыка
       </NavLink>
       <NavLink to="/news" className={style.item} activeClassName={style.active}>
-        News
+        Новости
       </NavLink>
       <NavLink
         to="/settings"
         className={style.item}
         activeClassName={style.active}
       >
-        Settings
+        Настройки
       </NavLink>
       <NavLink
         to="/modalpage"
         className={style.item}
         activeClassName={style.active}
       >
-        Modal
+        Модалка
       </NavLink>
 
       <NavLink

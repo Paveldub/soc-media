@@ -15,3 +15,11 @@ export const maxLengthCreator = (maxLength) => (value) => {
 
   return undefined;
 }
+
+export const minLengthCreator = (minLength) => (value) => {
+  if (value.length < minLength) {
+    return `Max length is ${minLength} symbols`;
+  }
+
+  return undefined;
+};
