@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './ProfileInfo.module.css';
+import style from './ProfileInfo.module.scss';
 import { Preloader } from '../../common/preloader';
 import userImg from '../../../assets/images/user-male-circle.png';
 import ProfileStatus from '../ProfileStatus/ProfileStatus';

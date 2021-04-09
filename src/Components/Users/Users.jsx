@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 import userImg from '../../assets/images/user-male-circle.png';
 import { NavLink } from 'react-router-dom';
 import * as axios from 'axios';

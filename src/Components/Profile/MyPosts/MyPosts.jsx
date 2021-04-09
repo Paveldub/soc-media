@@ -1,6 +1,6 @@
 import React from 'react';
 import { Post } from './Post/Post';
-import style from './MyPosts.module.css';
+import style from './MyPosts.module.scss';
 
 import { Field, reduxForm } from 'redux-form';
 

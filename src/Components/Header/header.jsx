@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './header.module.css';
+import style from './header.module.scss';
 import { NavLink } from 'react-router-dom';
 import { Toggler } from './menu-btn/menu-btn';
 
