@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Toggler } from './menu-btn/menu-btn';
 
 export const Header = (props) => {
+
   return (
     <header className={style.header}>
       <div className="container">
@@ -19,11 +20,16 @@ export const Header = (props) => {
       </div>
 
       <div className={style.loginBlock}>
-        {props.isAuth ? (
-          <span>{props.login}</span>
-        ) : (
-          <NavLink to="/login">Login</NavLink>
-        )}
+        <div className={style.loginBlock}>
+          {props.isAuth ? (
+            <div>
+              {props.login}
+              <button onClick={props.logout}>Log out</button>
+            </div>
+          ) : (
+            <NavLink to={'/login'}>Login</NavLink>
+          )}
+        </div>
       </div>
     </header>
   );

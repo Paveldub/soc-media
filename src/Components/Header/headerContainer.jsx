@@ -2,6 +2,8 @@ import React from 'react';
 import { Header } from './header';
 import { connect } from 'react-redux';
 
+import { logout } from '../../Redux/Reducers/auth-reducer';
+
 import { setAuthUserData } from '../../Redux/Reducers/auth-reducer';
 
 import { headerAuth } from '../../api/api';
@@ -30,5 +32,5 @@ const mapStateToProps = (state) => {
 };
 
 export default HeaderContainer = connect(mapStateToProps, {
-  setAuthUserData,
+  setAuthUserData, logout
 })(HeaderContainer);

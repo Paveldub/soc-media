@@ -3,10 +3,15 @@ import style from './ProfileInfo.module.scss';
 import { Preloader } from '../../common/preloader';
 import userImg from '../../../assets/images/user-male-circle.png';
 import ProfileStatus from '../ProfileStatus/ProfileStatus';
+import { Redirect } from 'react-router';
 
 export const Profile = (props) => {
   if (!props.profile) {
     return <Preloader />;
+  }
+
+  if (props.isAuth) {
+    return <Redirect to="/login" />
   }
 
   return (

@@ -7,14 +7,6 @@ export const Navigation = (props) => {
   return (
     <nav className={style.nav}>
       <NavLink
-        to="/login"
-        className={style.item}
-        activeClassName={style.active}
-      >
-        Login
-      </NavLink>
-      
-      <NavLink
         to="/profile"
         className={style.item}
         activeClassName={style.active}
@@ -38,23 +30,6 @@ export const Navigation = (props) => {
       </NavLink>
 
       <NavLink
-        to="/music"
-        className={style.item}
-        activeClassName={style.active}
-      >
-        Музыка
-      </NavLink>
-      <NavLink to="/news" className={style.item} activeClassName={style.active}>
-        Новости
-      </NavLink>
-      <NavLink
-        to="/settings"
-        className={style.item}
-        activeClassName={style.active}
-      >
-        Настройки
-      </NavLink>
-      <NavLink
         to="/modalpage"
         className={style.item}
         activeClassName={style.active}
@@ -68,6 +43,14 @@ export const Navigation = (props) => {
         activeClassName={style.active}
       >
         Datepicker
+      </NavLink>
+
+      <NavLink
+        to="/login"
+        className={style.item}
+        activeClassName={style.active}
+      >
+        Login
       </NavLink>
 
       <h4 className={style.item}>Friends list</h4>
