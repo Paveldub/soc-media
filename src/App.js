@@ -10,9 +10,23 @@ import { DatepickerComponent } from './Components/Datepicker/datepicker';
 
 import { Login } from './Components/Login/Login';
 
-import { Route } from 'react-router-dom';
+import { headerAuth } from './api/api';
+import { setAuthUserData } from './Redux/Reducers/auth-reducer';
 
-const App = () => {
+import { connect } from 'react-redux';
+
+import { Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+
+import { withRouter } from 'react-router-dom';
+import { compose } from 'redux';
+
+import { initializeApp } from './Redux/Reducers/App-reducer';
+import { Preloader } from './Components/common/preloader';
+
+const App = (props) => {
+  initializeApp();
+
   return (
     <div className="wrapper">
       <HeaderContainer />
@@ -30,4 +44,11 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized,
+});
+
+export default compose(
+  withRouter,
+  connect(mapStateToProps, { initializeApp })
+)(App);

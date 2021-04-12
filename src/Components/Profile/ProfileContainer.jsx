@@ -15,14 +15,16 @@ import {
 } from '../../Redux/Reducers/profilePage-reducer';
 
 export class ProfileContainer extends React.Component {
+  
   componentDidMount() {
     let userId = this.props.match.params.userId;
 
     if (!userId) {
       userId = this.props.authorizedUserId;
+      if (!userId) {
+        this.props.history.push('/login');
+      }
     }
-
-    console.log(this.props)
 
     profileUsers(userId).then((response) => {
       this.props.setUsersProfile(response.data);

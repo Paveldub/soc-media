@@ -5,6 +5,8 @@ import { Toggler } from './menu-btn/menu-btn';
 
 export const Header = (props) => {
 
+  console.log(props)
+
   return (
     <header className={style.header}>
       <div className="container">

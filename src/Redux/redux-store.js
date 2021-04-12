@@ -5,6 +5,7 @@ import { profileReducer } from './Reducers/profilePage-reducer';
 import { friendsReducer } from './Reducers/friendsComponentReducer';
 import { usersReducer } from './Reducers/usersPage-reducer';
 import { authReducer } from './Reducers/auth-reducer';
+import { AppReducer } from './Reducers/App-reducer';
 
 import thunkMiddlewear from 'redux-thunk';
 
@@ -17,6 +18,7 @@ const reducers = combineReducers({
   usersPage: usersReducer,
   auth: authReducer,
   form: formReducer,
+  app: AppReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
