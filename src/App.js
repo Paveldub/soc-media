@@ -1,54 +1,70 @@
-import { HeaderContainer } from './Components/Header/headerContainer';
-import { Navigation } from './Components/nav/nav';
-import { ProfileContainer } from './Components/Profile/ProfileContainer';
-
-import { DialogsContainer } from './Components/Dialogs/DialogsContainer';
-import { UsersContainer } from './Components/Users/UsersContainer';
-import { Sidebar } from './Components/common/sidebar/sidebar';
-import { ModalPage } from './Components/Modal/modal';
-import { DatepickerComponent } from './Components/Datepicker/datepicker';
-
-import { Login } from './Components/Login/Login';
-
-import { headerAuth } from './api/api';
-import { setAuthUserData } from './Redux/Reducers/auth-reducer';
-
-import { connect } from 'react-redux';
-
-import { Route } from 'react-router-dom';
-import React, { useEffect } from 'react';
-
-import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react';
+import './App.scss';
+import Navbar from './components/Navbar/Navbar';
+import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import UsersContainer from './components/Users/UsersContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
+import LoginPage from './components/Login/Login';
+import { connect, Provider } from 'react-redux';
 import { compose } from 'redux';
+import { initializeApp } from './redux/app-reducer';
+import Preloader from './components/common/Preloader/Preloader';
+import store from './redux/redux-store';
+import { withSuspense } from './hoc/withSuspense';
 
-import { initializeApp } from './Redux/Reducers/App-reducer';
-import { Preloader } from './Components/common/preloader';
+const DialogsContainer = React.lazy(() =>
+  import('./components/Dialogs/DialogsContainer')
+);
 
-const App = (props) => {
-  initializeApp();
+const ProfileContainer = React.lazy(() =>
+  import('./components/Profile/ProfileContainer')
+);
 
-  return (
-    <div className="wrapper">
-      <HeaderContainer />
-      <Navigation />
-      <div className="app-wrapper-content" style={{ background: 'pink' }}>
-        <Route path="/login" component={Login} />
-        <Route exact path="/dialogs" render={() => <DialogsContainer />} />
-        <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-        <Route path="/users" component={() => <UsersContainer />} />
-        <Route path="/modalpage" component={ModalPage} />
-        <Route path="/datepicker" component={DatepickerComponent} />
+class App extends Component {
+  componentDidMount() {
+    this.props.initializeApp();
+  }
+
+  render() {
+    if (!this.props.initialized) {
+      return <Preloader />;
+    }
+
+    return (
+      <div className="app-wrapper">
+        <HeaderContainer />
+        <Navbar />
+        <div className="app-wrapper-content">
+          <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
+          <Route
+            path="/profile/:userId?"
+            render={withSuspense(ProfileContainer)}
+          />
+          <Route path="/users" render={() => <UsersContainer />} />
+          <Route path="/login" component={() => <LoginPage />} />
+        </div>
       </div>
-      <Sidebar />
-    </div>
-  );
-};
+    );
+  }
+}
 
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
 });
 
-export default compose(
+let AppContainer = compose(
   withRouter,
   connect(mapStateToProps, { initializeApp })
 )(App);
+
+const MyApp = (props) => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </BrowserRouter>
+  );
+};
+
+export default MyApp;
