@@ -19,12 +19,6 @@ const ProfileInfo = ({
     return <Preloader />;
   }
 
-  // const onMainPhotoSelected = (e) => {
-  //   if (e.target.files.length) {
-  //     savePhoto(e.target.files[0]);
-  //   }
-  // };
-
   const onSubmit = (formData) => {
     saveProfile(formData).then(() => {
       setEditMode(false);
@@ -39,7 +33,6 @@ const ProfileInfo = ({
           className={s.mainPhoto}
           alt=""
         />
-        {/* {isOwner && <input type={'file'} onChange={onMainPhotoSelected} />} */}
 
         {editMode ? (
           <ProfileDataForm
