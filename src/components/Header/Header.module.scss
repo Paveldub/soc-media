@@ -2,6 +2,9 @@
   grid-area: h;
   background-color: green;
   border: 1px solid #000;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 17px;
 }
 
 .header img {
@@ -10,6 +13,11 @@
 
 .loginBlock {
   text-align: right;
+}
+
+.loginBlock div {
+  text-align: right;
+  padding: 5px;
 }
 
 .loginBlock a {
